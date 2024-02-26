@@ -59,16 +59,13 @@ const Navbar = () => {
           <Link to="/">Home</Link>
         </li>
         <li className="link">
-          <Link to="/search/doctors">Appointments</Link>
+          <Link to="/booking">Appointments</Link>
         </li>
         <li className="link">
          <Link to="/reviews">Reviews</Link>
         </li>
         <li className="link">
          <Link to="/instant-consultation">Instant Consultation</Link>
-        </li>
-        <li className="link">
-         <Link to="/find-doctor-search">Find Doctor</Link>
         </li>
         {isLoggedIn?(
           <>
