@@ -15,26 +15,44 @@ const AppointmentForm = ({ doctorName, doctorSpeciality, onSubmit }) => {
         setFormSubmitted(false);
       }, []);
     
-    const handleSlotSelection = (slot) => {
-      setSelectedSlot(slot);
-    };
-  
-    const handleFormSubmit = (e) => {
-      e.preventDefault();
-      onSubmit({ name, phoneNumber, dateAp, selectedSlot, doctorName, doctorSpeciality });
-      
-      // Store the form data in localStorage
-      localStorage.setItem('appointmentData', JSON.stringify({ name, phoneNumber, dateAp, selectedSlot, doctorName, doctorSpeciality }));
-      
-      setName('');
-      setPhoneNumber('');
-      setDateAp('');
-      setSelectedSlot(null)
-
-      setFormSubmitted(true);
-      console.log(formSubmitted);
-      setFormSubmitted(null)
-    };
+      const handleFormSubmit = async (e) => {
+        e.preventDefault();
+    
+        // Create an object with the appointment data
+        const appointmentData = {
+          name,
+          phoneNumber,
+          dateAp,
+          selectedSlot,
+          doctorName,
+          doctorSpeciality,
+        };
+    
+        try {
+          // Make a POST request to the /api/appt endpoint
+          const response = await fetch(`${API_URL}/api/appt`, {
+            method: 'POST',
+            headers: {
+              'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(appointmentData),
+          });
+    
+          if (response.ok) {
+            console.log('Appointment data stored successfully in the API.');
+            // Optionally, update the UI or take further actions
+    
+            // Set formSubmitted to true
+            setFormSubmitted(true);
+          } else {
+            console.error('Error storing appointment data in the API.');
+            // Handle errors and provide feedback to the user
+          }
+        } catch (error) {
+          console.error('Error during appointment submission:', error);
+          // Handle errors and provide feedback to the user
+        }
+      };
   
     return (
         <>

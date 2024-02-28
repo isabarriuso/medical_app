@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { API_URL } from '../../config';
 
 const Notification = ({ children }) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false);
@@ -9,20 +10,36 @@ const Notification = ({ children }) => {
   useEffect(() => {
     const storedUsername = sessionStorage.getItem('email');
     const storedDoctorData = JSON.parse(localStorage.getItem('doctorData'));
-    const storedAppointmentData = JSON.parse(localStorage.getItem('appointmentData'));
+    
     if (storedUsername) {
       setIsLoggedIn(true);
       setUsername(storedUsername);
+
+      // Fetch appointment data from API
+      fetch(`${API_URL}/api/appt/user`, {
+        method: 'GET',
+        headers: {
+          'Content-Type': 'application/json',
+          // Add your authorization token if needed
+          // 'Authorization': `Bearer ${yourAuthToken}`
+          'email': storedUsername, // Include the user's email in the headers
+        },
+      })
+      .then(response => response.json())
+      .then(data => {
+        // Assuming data is an array of appointments
+        setAppointmentData(data);
+      })
+      .catch(error => {
+        console.error('Error fetching appointment data:', error);
+      });
     }
 
     if (storedDoctorData) {
       setDoctorData(storedDoctorData);
     }
-
-    if (storedAppointmentData) {
-      setAppointmentData(storedAppointmentData);
-    }
   }, []);
+  
   return (
     <div>
       {children}

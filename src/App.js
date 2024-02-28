@@ -12,6 +12,8 @@ import DoctorCard from './Components/DoctorCard/DoctorCard';
 import AppointmentForm from './Components/AppointmentForm/AppointmentForm';
 import Booking from './Components/Booking/Booking';
 import Notification  from './Components/Notification/Notification';
+import ReviewForm from './Components/ReviewForm/Reviewform';
+import ReviewBox from './Components/ReviewForm/ReviewBox/ReviewBox'
 
 
 function App() {
@@ -30,6 +32,8 @@ function App() {
                 <Route path="/doc-card" element={<DoctorCard />} />
                 <Route path="/appt-form" element={<AppointmentForm />} />
                 <Route path="/booking" element={<Booking />} />
+                <Route path="/reviews" element={<ReviewForm />} />
+                <Route path="/leave-review/:appointmentId" element={<ReviewBox />} />
               </Routes>
             </Notification>
 
