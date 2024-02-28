@@ -4,6 +4,7 @@ import 'reactjs-popup/dist/index.css';
 import './DoctorCard.css';
 import AppointmentForm from '../AppointmentForm/AppointmentForm'
 import { v4 as uuidv4 } from 'uuid';
+import Notification from '../Notification/Notification';
 
 
 const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
@@ -89,6 +90,8 @@ const DoctorCard = ({ name, speciality, experience, ratings, profilePic }) => {
                     <div className="bookedInfo" key={appointment.id}>
                       <p>Name: {appointment.name}</p>
                       <p>Phone Number: {appointment.phoneNumber}</p>
+                      <p>Date: {appointment.dateAp}</p>
+                      <p>Time slot: {appointment.selectedSlot}</p>
                       <button onClick={() => handleCancel(appointment.id)}>Cancel Appointment</button>
                     </div>
                   ))}

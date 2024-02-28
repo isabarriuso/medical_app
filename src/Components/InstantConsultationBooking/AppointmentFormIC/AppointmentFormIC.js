@@ -4,18 +4,15 @@ const AppointmentFormIC = ({ doctorName, doctorSpeciality, onSubmit }) => {
     const [name, setName] = useState('');
     const [phoneNumber, setPhoneNumber] = useState('');
     const [selectedSlot, setSelectedSlot] = useState(null);
-  
-    const handleSlotSelection = (slot) => {
-      setSelectedSlot(slot);
-    };
+    const [dateAp, setDateAp] = useState('')
   
     const handleFormSubmit = (e) => {
       e.preventDefault();
-      onSubmit({ name, phoneNumber });
+      onSubmit({ name, phoneNumber});
       setName('');
       setPhoneNumber('');
     };
-  
+
     return (
       <form onSubmit={handleFormSubmit} className="appointment-form">
         <div className="form-group">

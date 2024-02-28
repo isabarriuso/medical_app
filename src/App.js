@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
-
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Popup from 'reactjs-popup';
+import {BrowserRouter, Routes, Route } from "react-router-dom";
 
 import Navbar from './Components/Navbar/Navbar';
 import Landing_Page from './Components/Landing_Page/Landing_Page';
@@ -11,6 +11,8 @@ import FindDoctorSearch from './Components/FindDoctorSearch/FindDoctorSearch';
 import DoctorCard from './Components/DoctorCard/DoctorCard';
 import AppointmentForm from './Components/AppointmentForm/AppointmentForm';
 import Booking from './Components/Booking/Booking';
+import Notification  from './Components/Notification/Notification';
+
 
 function App() {
 
@@ -18,6 +20,7 @@ function App() {
     <div className="App">
         <BrowserRouter>
           <Navbar/>
+          <Notification>
               <Routes>
                 <Route path="/" element={<Landing_Page/>}/>
                 <Route path="/signup" element={<Sign_Up/>}/>
@@ -28,7 +31,7 @@ function App() {
                 <Route path="/appt-form" element={<AppointmentForm />} />
                 <Route path="/booking" element={<Booking />} />
               </Routes>
-
+            </Notification>
 
         </BrowserRouter>
        
