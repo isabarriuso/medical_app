@@ -1,0 +1,24 @@
+.profile-card-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /* Set the container height to full viewport height */
+  }
+  
+  .profile-card {
+    border: 1px solid #ddd;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+  }
+  
+  .profile-card h3 {
+    color: #333;
+  }
+  
+  .profile-card p {
+    margin: 10px 0;
+  }
+  
+  

@@ -14,6 +14,7 @@ import Booking from './Components/Booking/Booking';
 import Notification  from './Components/Notification/Notification';
 import ReviewForm from './Components/ReviewForm/Reviewform';
 import ReviewBox from './Components/ReviewForm/ReviewBox/ReviewBox'
+import ProfileCard from './Components/ProfileCard.js/ProfileCard';
 
 
 function App() {
@@ -22,7 +23,7 @@ function App() {
     <div className="App">
         <BrowserRouter>
           <Navbar/>
-          <Notification>
+          <Notification>            </Notification>
               <Routes>
                 <Route path="/" element={<Landing_Page/>}/>
                 <Route path="/signup" element={<Sign_Up/>}/>
@@ -34,8 +35,9 @@ function App() {
                 <Route path="/booking" element={<Booking />} />
                 <Route path="/reviews" element={<ReviewForm />} />
                 <Route path="/leave-review/:appointmentId" element={<ReviewBox />} />
+                <Route path="/profile" element={<ProfileCard />} />
               </Routes>
-            </Notification>
+
 
         </BrowserRouter>
        
