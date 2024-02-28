@@ -77,6 +77,9 @@ const Navbar = () => {
                     <div className="dropdown-content">
                         <Link to="/profile">
                             View Profile
+                        </Link>                        
+                        <Link to="/reports">
+                            View Reports
                         </Link>
                     </div>
                 )}

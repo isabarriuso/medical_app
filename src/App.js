@@ -15,7 +15,8 @@ import Notification  from './Components/Notification/Notification';
 import ReviewForm from './Components/ReviewForm/Reviewform';
 import ReviewBox from './Components/ReviewForm/ReviewBox/ReviewBox'
 import ProfileCard from './Components/ProfileCard.js/ProfileCard';
-
+import ProfileForm from './Components/ProfileForm/ProfileForm';
+import ReportsLayout from './Components/ReportsLayout/ReportsLayout'
 
 function App() {
 
@@ -36,6 +37,8 @@ function App() {
                 <Route path="/reviews" element={<ReviewForm />} />
                 <Route path="/leave-review/:appointmentId" element={<ReviewBox />} />
                 <Route path="/profile" element={<ProfileCard />} />
+                <Route path="/edit-profile" element={<ProfileForm />} />
+                <Route path="/reports" element={<ReportsLayout />} />
               </Routes>
 
 
